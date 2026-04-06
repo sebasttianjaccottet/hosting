@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>SEBA envíos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  background:linear-gradient(135deg,#0d1b2a,#1b263b);
+  color:white;
+}
+
+header{
+  text-align:center;
+  padding:80px 20px;
+}
+
+h1{
+  font-size:3.2em;
+  color:#fca311;
+}
+
+.subtitle{
+  opacity:0.8;
+  margin:10px 0 30px;
+}
+
+.btn{
+  background:#25D366;
+  padding:15px 30px;
+  border-radius:12px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+.section{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:20px;
+  width:260px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card h3{
+  color:#fca311;
+  margin-bottom:10px;
+}
+
+.form{
+  margin-top:30px;
+}
+
+input, textarea{
+  width:90%;
+  padding:12px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:0.6;
+}
+</style>
+</head>
+<a href="https://wa.me/59895829865" class="whatsapp-float" target="_blank">
+  💬
+</a>
+
+<a href="https://wa.me/59895829865" class="whatsapp-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<style>
+.whatsapp-float{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.whatsapp-float img{
+  width: 30px;
+  height: 30px;
+}
+
+.whatsapp-float:hover{
+  transform: scale(1.1);
+}
+</style>
+<body>
+
+<header>
+  <h1>SEBA envíos</h1>
+  <p class="subtitle">Rápido. Seguro. A tiempo.</p>
+
+  </header>
+
+<section class="section">
+  <h2>🚀 Servicios</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>📦 Envíos</h3>
+      <p>Entregas rápidas en la ciudad</p>
+    </div>
+
+    <div class="card">
+      <h3>🛍️ Mandados</h3>
+      <p>Compras y trámites por vos</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Express</h3>
+      <p>Servicio prioritario</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📦 Pedí tu envío en 30 segundos</h2>
+  <p>Completá y te respondemos al instante</p>
+
+  <div class="form">
+    <input id="nombre" placeholder="Tu nombre">
+    <input id="direccion" placeholder="Dirección de retiro">
+    <input id="destino" placeholder="Dirección de entrega">
+    <textarea id="detalle" placeholder="¿Qué hay que enviar?"></textarea>
+
+    <button class="btn" onclick="enviarWhatsApp()">
+      Enviar pedido 🚀
+    </button>
+  </div>
+</section>
+
+<footer>
+  © 2026 SEBA envíos
+</footer>
+
+<script>
+function enviarWhatsApp(){
+  let nombre = document.getElementById("nombre").value;
+  let direccion = document.getElementById("direccion").value;
+  let destino = document.getElementById("destino").value;
+  let detalle = document.getElementById("detalle").value;
+
+  let mensaje = `Hola, quiero coordinar un envio porfavor!
+Nombre: ${nombre}
+Retiro: ${direccion}
+Entrega: ${destino}
+Detalle: ${detalle}`;
+
+  let url = "https://wa.me/59895829865?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
