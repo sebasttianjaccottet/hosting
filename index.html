@@ -5,29 +5,35 @@
 <title>SEBA envíos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<!-- FONTS RETRO -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:'Montserrat', sans-serif;
 }
 
 body{
-  background:linear-gradient(135deg,#0d1b2a,#1b263b);
-  color:white;
+  background:#f4e1c1;
+  color:#2b2b2b;
 }
 
+/* HEADER */
 header{
   text-align:center;
   padding:80px 20px;
+  background:#1b263b;
+  color:white;
 }
 
 h1{
-  font-size:3em;
+  font-family:'Bebas Neue', sans-serif;
+  font-size:4em;
   color:#fca311;
+  letter-spacing:2px;
 }
 
 .subtitle{
@@ -35,11 +41,21 @@ h1{
   opacity:0.8;
 }
 
+/* LOGO */
+.logo{
+  width: 200px;px;
+  margin-top:20px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* SECCIONES */
 .section{
   padding:60px 20px;
   text-align:center;
 }
 
+/* CARDS */
 .cards{
   display:flex;
   justify-content:center;
@@ -49,22 +65,26 @@ h1{
 }
 
 .card{
-  background:rgba(255,255,255,0.05);
+  background:#fff8e7;
+  border:3px solid #fca311;
   padding:25px;
-  border-radius:20px;
+  border-radius:15px;
   width:260px;
-  transition:0.3s;
+  box-shadow:5px 5px 0px #2b2b2b;
+  transition:0.2s;
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-5px);
 }
 
 .card h3{
-  color:#fca311;
-  margin-bottom:10px;
+  font-family:'Bebas Neue', sans-serif;
+  color:#d62828;
+  font-size:1.5em;
 }
 
+/* FORM */
 .form{
   margin-top:30px;
 }
@@ -73,23 +93,26 @@ input, textarea{
   width:90%;
   padding:12px;
   margin:10px;
-  border:none;
-  border-radius:10px;
+  border:2px solid #2b2b2b;
+  border-radius:8px;
+  background:#fff8e7;
 }
 
 .btn{
-  background:#25D366;
+  background:#d62828;
   padding:15px 30px;
-  border-radius:12px;
+  border-radius:10px;
   color:white;
   border:none;
   font-weight:bold;
   cursor:pointer;
   margin-top:10px;
+  box-shadow:3px 3px 0px #2b2b2b;
+  transition:0.2s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
+  transform:translateY(-2px);
 }
 
 #error{
@@ -97,10 +120,13 @@ input, textarea{
   margin-top:10px;
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
-  opacity:0.6;
+  background:#1b263b;
+  color:white;
+  margin-top:40px;
 }
 
 /* BOTON FLOTANTE */
@@ -117,27 +143,11 @@ footer{
   justify-content: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 999;
-  transition: 0.3s;
 }
 
 .whatsapp-float img{
   width:28px;
   height:28px;
-}
-
-.whatsapp-float:hover{
-  transform: scale(1.1);
-}
-
-/* animacion */
-.whatsapp-float{
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%{box-shadow: 0 0 0 0 rgba(37,211,102,0.6);}
-  70%{box-shadow: 0 0 0 15px rgba(37,211,102,0);}
-  100%{box-shadow: 0 0 0 0 rgba(37,211,102,0);}
 }
 </style>
 </head>
@@ -147,6 +157,9 @@ footer{
 <header>
   <h1>SEBA envíos</h1>
   <p class="subtitle">Rápido. Seguro. A tiempo.</p>
+
+  <!-- TU LOGO -->
+  <img src="logo.png" class="logo">
 </header>
 
 <section class="section">
@@ -171,7 +184,7 @@ footer{
 </section>
 
 <section class="section">
-  <h2>📦 Pedí tu envío en 30 segundos</h2>
+  <h2>📦 Pedí tu envío</h2>
 
   <div class="form">
     <input id="nombre" placeholder="Tu nombre">
@@ -204,26 +217,25 @@ function enviarWhatsApp(){
   let detalle = document.getElementById("detalle");
   let error = document.getElementById("error");
 
-  // reset bordes
-  nombre.style.border = "none";
-  direccion.style.border = "none";
-  destino.style.border = "none";
-  detalle.style.border = "none";
+  nombre.style.border="";
+  direccion.style.border="";
+  destino.style.border="";
+  detalle.style.border="";
 
   if(!nombre.value.trim() || !direccion.value.trim() || !destino.value.trim() || !detalle.value.trim()){
     error.innerText = "⚠️ Completá todos los campos";
 
-    if(!nombre.value.trim()) nombre.style.border = "2px solid red";
-    if(!direccion.value.trim()) direccion.style.border = "2px solid red";
-    if(!destino.value.trim()) destino.style.border = "2px solid red";
-    if(!detalle.value.trim()) detalle.style.border = "2px solid red";
+    if(!nombre.value.trim()) nombre.style.border="2px solid red";
+    if(!direccion.value.trim()) direccion.style.border="2px solid red";
+    if(!destino.value.trim()) destino.style.border="2px solid red";
+    if(!detalle.value.trim()) detalle.style.border="2px solid red";
 
     return;
   }
 
   error.innerText = "";
 
-  let mensaje = `Hola!, quiero coordinar un envio porfavor.
+  let mensaje = `Hola! Quiero coordinar un envío!
 Nombre: ${nombre.value}
 Retiro: ${direccion.value}
 Entrega: ${destino.value}
